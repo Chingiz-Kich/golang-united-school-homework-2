@@ -12,7 +12,9 @@ import (
 // CalcSquare(10.0, SidesSquare)
 // CalcSquare(10.0, SidesCircle)
 
-func CalcSquare(sideLen float64, sidesNum int) float64 {
+type intCustomType int
+
+func CalcSquare(sideLen float64, sidesNum intCustomType) float64 {
 	if sidesNum == 3 {
 		return math.Sqrt(3) / 4 * math.Pow(sideLen, 2)
 	} else if sidesNum == 4 {
