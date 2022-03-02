@@ -14,14 +14,21 @@ import (
 
 type intCustomType int
 
+const (
+	SidesCircle   intCustomType = 0
+	SidesTriangle intCustomType = 3
+	SidesSquare   intCustomType = 4
+)
+
 func CalcSquare(sideLen float64, sidesNum intCustomType) float64 {
-	if sidesNum == 3 {
-		return math.Sqrt(3) / 4 * math.Pow(sideLen, 2)
-	} else if sidesNum == 4 {
-		return math.Pow(sideLen, 2)
-	} else if sidesNum == 0 {
+	switch sidesNum {
+	case SidesCircle:
 		return math.Pi * math.Pow(sideLen, 2)
-	} else {
+	case SidesTriangle:
+		return math.Sqrt(3) / 4 * math.Pow(sideLen, 2)
+	case SidesSquare:
+		return math.Pow(sideLen, 2)
+	default:
 		return 0
 	}
 }
